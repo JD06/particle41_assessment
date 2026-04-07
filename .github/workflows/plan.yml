@@ -82,7 +82,7 @@ jobs:
 
       - name: Deploy Python App to EKS
         run: |
-          kubectl apply -f deployment.yaml
+          kubectl apply -f deployment.yaml --validate=false
           
       - name: Verify Deployment
         run: |
