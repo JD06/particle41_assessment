@@ -73,7 +73,7 @@ resource "aws_nat_gateway" "main" {
 }
 
 resource "aws_route" "private_nat" {
-  route_table_id         = aws_vpc.main.default_route_table_id # Assuming private uses default
+  route_table_id         = aws_vpc.main.default_route_table_id
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = aws_nat_gateway.main.id
 }
