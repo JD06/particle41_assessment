@@ -1,5 +1,5 @@
-# particle41_assessment
-This repository is for assessment task for Particle41
+# Assessment
+This repository is for assessment task for creating vpc and EKS cluster and deploying test python app
 
 **Application**
 
