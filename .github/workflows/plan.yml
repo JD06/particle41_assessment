@@ -78,13 +78,15 @@ jobs:
         run: terraform apply -auto-approve -input=false
 
       - name: Update Kubeconfig
-        run: aws eks update-kubeconfig --name ${{ env.CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
-
-      - name: Deploy Python App to EKS
         run: |
-          kubectl apply -f deployment.yaml --validate=false
-          
-      - name: Verify Deployment
-        run: |
+          aws eks update-kubeconfig --name ${{ env.CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
           kubectl get nodes
-          kubectl get pods -n python-app-space
+
+      # - name: Deploy Python App to EKS
+      #   run: |
+      #     kubectl apply -f deployment.yaml --validate=false
+          
+      # - name: Verify Deployment
+      #   run: |
+      #     kubectl get nodes
+      #     kubectl get pods -n python-app-space
